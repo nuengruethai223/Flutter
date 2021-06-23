@@ -103,6 +103,7 @@ class _MainScreenState extends State<MainScreen> {
                   ],
                 ),
                 Container(
+                  
                   height: 200,
                   width: double.infinity,
                   margin: EdgeInsets.only(right: 16, left: 16, top: 80),
@@ -126,6 +127,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   child: Column(
+                  
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

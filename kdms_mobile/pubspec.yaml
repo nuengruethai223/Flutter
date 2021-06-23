@@ -70,6 +70,7 @@ dev_dependencies:
   json_serializable: ^4.0.2
   hive_generator: ^1.0.0
   build_runner: ^1.11.5
+  draggable_scrollbar: 0.0.4
 
 dependency_overrides:
   quiver: ^3.0.0
@@ -79,6 +80,7 @@ flutter:
     - assets/translations/
     - assets/image/logo/
     - assets/image/background/
+
 
 
 

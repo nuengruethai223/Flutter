@@ -15,6 +15,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 
 class Appointment extends StatefulWidget {
   @override
@@ -22,8 +23,9 @@ class Appointment extends StatefulWidget {
 }
 
 class _AppointmentState extends State<Appointment> {
-  bool isCvvFocused = false;
+  ScrollController _rrectController = ScrollController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,165 +95,222 @@ class _AppointmentState extends State<Appointment> {
                       )
                     ],
                   ),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            padding: EdgeInsets.only(top: 16, left: 16),
+                  child: SingleChildScrollView(
+                    controller: _rrectController,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              alignment: Alignment.topLeft,
+                              padding: EdgeInsets.only(top: 16, left: 16),
+                              child: Text(
+                                '  นัดหมายแพทย์',
+                                style: TextStyle(
+                                    color: Colors.teal[800],
+                                    fontFamily: 'IranSansLight',
+                                    fontSize: 20.0),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Container(
+                              alignment: Alignment.topRight,
+                              padding: EdgeInsets.only(
+                                top: 16,
+                              ),
+                              child: Icon(
+                                FontAwesomeIcons.search,
+                                color: Colors.black54,
+                                size: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          height: 60,
+                          width: 60,
+                          margin: EdgeInsets.only(
+                            top: 10,
+                          ),
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage("assets/image/logo/profile.png"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'นพ.กิตติคุณ กิจบุญ',
+                          style: TextStyle(
+                              color: Colors.teal[900],
+                              fontFamily: 'IranSansLight',
+                              fontSize: 16.0),
+                        ),
+                        Text(
+                          'ศูนย์ศัลยกรรม',
+                          style: TextStyle(
+                              color: Colors.teal[800],
+                              fontFamily: 'IranSansLight',
+                              fontSize: 13.0),
+                        ),
+                        SizedBox(
+                          height: 16   ,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: 15,
+                            ),
                             child: Text(
-                              '  นัดหมายแพทย์',
+                              'วันและเวลาที่ต้องการนัด',
+                              textAlign: TextAlign.left,
                               style: TextStyle(
                                   color: Colors.teal[800],
                                   fontFamily: 'IranSansLight',
-                                  fontSize: 20.0),
+                                  fontSize: 18.0),
                             ),
                           ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Container(
-                            alignment: Alignment.topRight,
-                            padding: EdgeInsets.only(
-                              top: 16,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: 15,
                             ),
-                            child: Icon(
-                              FontAwesomeIcons.search,
-                              color: Colors.black54,
-                              size: 20,
+                            child: Text(
+                              'โปรดนัดหมายก่อน 24 ชั่วโมงก่อนเวลาที่นัด',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Colors.teal[800],
+                                  fontFamily: 'IranSansLight',
+                                  fontSize: 11.0),
                             ),
                           ),
-                        ],
-                      ),
-                      Container(
-                        height: 60,
-                        width: 60,
-                        margin: EdgeInsets.only(
-                          top: 10,
                         ),
-                        child: CircleAvatar(
-                          backgroundImage:
-                              AssetImage("assets/image/logo/profile.png"),
+                        SizedBox(
+                          height: 8,
                         ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'นพ.กิตติคุณ กิจบุญ',
-                        style: TextStyle(
-                            color: Colors.teal[900],
-                            fontFamily: 'IranSansLight',
-                            fontSize: 16.0),
-                      ),
-                      Text(
-                        'ศูนย์ศัลยกรรม',
-                        style: TextStyle(
-                            color: Colors.teal[800],
-                            fontFamily: 'IranSansLight',
-                            fontSize: 12.0),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: 15,
-                          ),
-                          child: Text(
-                            'วันและเวลาที่ต้องการนัด',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Colors.teal[800],
-                                fontFamily: 'IranSansLight',
-                                fontSize: 16.0),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: 15,
+                            ),
+                            child: Text(
+                              'วันนัดหมาย',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Colors.teal[800],
+                                  fontFamily: 'IranSansLight',
+                                  fontSize: 15.0),
+                            ),
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: 15,
-                          ),
-                          child: Text(
-                            'โปรดนัดหมายก่อน 24 ชั่วโมงก่อนเวลาที่นัด',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Colors.teal[800],
-                                fontFamily: 'IranSansLight',
-                                fontSize: 11.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: 15,
-                          ),
-                          child: Text(
-                            'วันนัดหมาย',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Colors.teal[800],
-                                fontFamily: 'IranSansLight',
-                                fontSize: 15.0),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 40,
-                        margin: EdgeInsets.only(left: 8, right: 8),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'วัน/เดือน/ปี',
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Container(
-                        height: 40,
-                        margin: EdgeInsets.only(left: 8, right: 8),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'ไม่ระบุเวลา',
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          print("Click event on Container");
-                        },
-                        child: Container(
+                        Container(
                           height: 40,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.green[400],
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3),
-                              )
-                            ],
+                          margin: EdgeInsets.only(left: 20, right: 20),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'วัน/เดือน/ปี',
+                            ),
                           ),
                         ),
-                      ),
-                      
-                    ],
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: 15,
+                            ),
+                            child: Text(
+                              'เวลา',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Colors.teal[800],
+                                  fontFamily: 'IranSansLight',
+                                  fontSize: 15.0),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 40,
+                          margin: EdgeInsets.only(left: 20, right: 20),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'ไม่ระบุเวลา',
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: 15,
+                            ),
+                            child: Text(
+                              'หมายเหตุ',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Colors.teal[800],
+                                  fontFamily: 'IranSansLight',
+                                  fontSize: 15.0),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 60,
+                          margin: EdgeInsets.only(left: 20, right: 20),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            print("Click event on Container");
+                          },
+                          child: Container(
+                            padding: EdgeInsets.only(
+                              top: 11,
+                              left: 85,
+                            ),
+                            child: Text(
+                              "OK",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              color: Colors.indigo[200],
+                              borderRadius: BorderRadius.circular(16),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: Offset(0, 3),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
