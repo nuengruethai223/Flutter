@@ -120,11 +120,11 @@ class _AppointmentState extends State<Appointment> {
                               padding: EdgeInsets.only(
                                 top: 16,
                               ),
-                              child: Icon(
-                                FontAwesomeIcons.search,
-                                color: Colors.black54,
-                                size: 20,
-                              ),
+                              // child: Icon(
+                              //   FontAwesomeIcons.search,
+                              //   color: Colors.black54,
+                              //   size: 20,
+                              // ),
                             ),
                           ],
                         ),

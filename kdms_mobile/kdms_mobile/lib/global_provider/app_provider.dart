@@ -6,7 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class AppProvider extends ChangeNotifier {
   Future<void> init() async {
     await Future.delayed(Duration(seconds: 5));
-    Modular.to.pushNamed(AppRouter.fromModule().appoinmentProviderScreen);
+    Modular.to.pushNamed(AppRouter.fromModule().mainProviderScreen);
   }
   Future<void> logout({bool dontAsk = false}) async {
     bool r = false;

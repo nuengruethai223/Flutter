@@ -15,6 +15,7 @@ dependencies:
   flutter_credit_card: ^2.0.0
   gradients: ^0.1.1+1
   searchfield: ^0.5.2
+  smooth_star_rating: 1.1.1
 
   #  State management
   provider: ^5.0.0

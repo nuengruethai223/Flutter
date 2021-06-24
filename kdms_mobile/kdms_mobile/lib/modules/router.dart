@@ -18,6 +18,8 @@ class AppRouter {
   String get mainProviderScreen => currentModule + "/mainScreen";
 
   String get appoinmentProviderScreen => currentModule + "/appoinment";
+  
+   String get appoinmentListProviderScreen => currentModule + "/appoinmentList";
 
   String get home => "/home";
 

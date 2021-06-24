@@ -12,6 +12,8 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_credit_card/credit_card_form.dart';
 import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:gradients/gradients.dart';
+import 'package:kdms_mobile/screen/appointment.dart';
+import 'package:kdms_mobile/screen/appointmentList_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -63,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                 Container(
                   width: double.infinity,
                   height: 155,
-                  color: Color(0xFF00918C),
+                  color: Colors.indigo[300],
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 10.0, left: 16),
@@ -103,7 +105,6 @@ class _MainScreenState extends State<MainScreen> {
                   ],
                 ),
                 Container(
-                  
                   height: 200,
                   width: double.infinity,
                   margin: EdgeInsets.only(right: 16, left: 16, top: 80),
@@ -121,13 +122,12 @@ class _MainScreenState extends State<MainScreen> {
                       begin: Alignment.topLeft,
                       end: Alignment(0.9, 0.0),
                       colors: [
-                        Color(0xFFC2EBDF),
-                        Color(0xFFFFFFFF),
+                        Colors.indigo[200],
+                        Colors.pink[100],
                       ],
                     ),
                   ),
                   child: Column(
-                  
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -174,11 +174,19 @@ class _MainScreenState extends State<MainScreen> {
                     'Medical Exam Result',
                     style: TextStyle(color: Colors.black54, fontSize: 16.0),
                   ),
-                  SizedBox(width: 175,),
-                  Icon(
-                    FontAwesomeIcons.angleRight,
-                    color: Colors.black54,
-                    size: 25,
+                  IconButton(
+                    padding: EdgeInsets.only(left: 175),
+                    icon: Icon(
+                      FontAwesomeIcons.angleRight,
+                      color: Colors.indigo[900],
+                      size: 25,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AppointmentListScreen()));
+                    },
                   ),
                 ],
               ),
@@ -239,17 +247,24 @@ class _MainScreenState extends State<MainScreen> {
                     'Next Appointment',
                     style: TextStyle(color: Colors.black54, fontSize: 16.0),
                   ),
-                  SizedBox(width: 183,),
-                  Icon(
-                    FontAwesomeIcons.angleRight,
-                    color: Colors.black54,
-                    size: 25,
+                  IconButton(
+                    padding: EdgeInsets.only(left: 192),
+                    icon: Icon(
+                      FontAwesomeIcons.angleRight,
+                      color: Colors.indigo[900],
+                      size: 25,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AppointmentListScreen()));
+                    },
                   ),
                 ],
               ),
             ),
             SizedBox(height: 10),
-            
             Container(
                 height: 115,
                 width: double.infinity,

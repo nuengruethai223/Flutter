@@ -7,6 +7,8 @@ import 'package:kdms_mobile/screen/main_screen.dart';
 import 'package:kdms_mobile/screen/start/start_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:provider/provider.dart';
+import 'package:kdms_mobile/screen/appointmentList_screen.dart';
+
 
 import 'page_transition.dart';
 import 'router.dart';
@@ -40,6 +42,12 @@ class AppModule extends Module {
           transition: TransitionType.custom,
           customTransition: transition.fadeThroughTransition,
           child: (context, args) => SignInProviderScreen(),
+        ),
+          ChildRoute(
+          appRouter.appoinmentListProviderScreen,
+          transition: TransitionType.custom,
+          customTransition: transition.fadeThroughTransition,
+          child: (context, args) => AppointmentListScreen(),
         ),
         ChildRoute(
           appRouter.login,
