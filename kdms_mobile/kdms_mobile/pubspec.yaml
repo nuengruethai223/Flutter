@@ -1,0 +1,87 @@
+name: kdms_mobile
+description: A new Flutter application.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_localizations:
+    sdk: flutter
+  easy_localization: ^3.0.0
+  flutter_credit_card: ^2.0.0
+  gradients: ^0.1.1+1
+  searchfield: ^0.5.2
+
+  #  State management
+  provider: ^5.0.0
+  hive: ^2.0.0
+  hive_flutter: ^1.0.0
+  equatable: ^2.0.0
+  event_bus: ^2.0.0
+  after_layout: ^1.0.7+2
+  tuple: ^1.0.3
+
+  #  Routing
+  flutter_modular: ^3.0.0+1
+
+  camera: ^0.8.0
+
+  #  UI
+  flutter_spinkit: ^5.0.0
+#  shimmer: ^1.1.2
+  auto_size_text: ^2.1.0
+  google_fonts: ^2.0.0
+  animations: ^2.0.0
+  bot_toast: ^4.0.0+1
+  font_awesome_flutter: ^8.11.0
+#  fl_chart: ^0.12.2
+  flutter_statusbarcolor: ^0.2.3
+
+  #  Image
+  transparent_image: ^1.0.0
+  flutter_svg: 0.19.3
+  flutter_image_compress: ^0.7.0
+  octo_image: ^1.0.0-nullsafety.1
+  image_picker: ^0.7.2
+  photo_view: ^0.11.1
+
+  onesignal_flutter: ^2.6.3
+
+  # Network
+  file_picker: ^3.0.0
+  dio: ^4.0.0-beta7
+  flutter_linkify: ^5.0.0
+  url_launcher: ^6.0.2
+  connectivity: ^3.0.2
+  json_annotation: ^4.0.0
+
+  package_info: ^2.0.0
+  device_info: ^2.0.0
+  location: ^4.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pretty_dio_logger: ^1.2.0-beta
+  json_serializable: ^4.0.2
+  hive_generator: ^1.0.0
+  build_runner: ^1.11.5
+  draggable_scrollbar: 0.0.4
+
+dependency_overrides:
+  quiver: ^3.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/translations/
+    - assets/image/logo/
+    - assets/image/background/
+
+
+
+
+
